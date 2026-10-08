@@ -1,0 +1,16 @@
+services:
+  windows:
+    image: dockurr/windows
+    container_name: windows
+    environment:
+      VERSION: "11" # O "10", "2022", etc.
+    devices:
+      - /dev/kvm
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006 # Visor web
+      - 3389:3389 # RDP
+    volumes:
+      - ./windows:/storage   
